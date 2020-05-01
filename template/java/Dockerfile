@@ -1,4 +1,4 @@
-FROM bde2020/spark-submit:2.4.5-hadoop2.7
+FROM jvanest/spark-submit:2.4.5-hadoop2.7-centos7
 
 LABEL maintainer="Gezim Sejdiu <g.sejdiu@gmail.com>, Giannis Mouchakis <gmouchakis@gmail.com>"
 
@@ -6,7 +6,7 @@ ENV SPARK_APPLICATION_JAR_NAME application-1.0
 
 COPY template.sh /
 
-RUN apk add --no-cache openjdk8 maven\
+RUN yum install -y maven\
       && chmod +x /template.sh \
       && mkdir -p /app \
       && mkdir -p /usr/src/app
