@@ -15,7 +15,7 @@ COPY finish-step.sh /
 
 #COPY bde-spark.css /css/org/apache/spark/ui/static/timeline-view.css
 
-RUN yum install -y curl bash java-1.8.0-openjdk python3 py-pip nss libc6-compat wget \
+RUN yum install -y curl bash java-1.8.0-openjdk python3-devel py-pip nss gcc libc6-compat wget \
       && ln -s /lib64/ld-linux-x86-64.so.2 /lib/ld-linux-x86-64.so.2 \
       && chmod +x *.sh \
       && wget https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
